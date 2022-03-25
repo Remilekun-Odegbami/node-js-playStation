@@ -1,0 +1,34 @@
+<%- include('../partials/header'); %>
+
+<main class="main main-ps container">
+    <h2 class="text-center text-primary"> <%= name %></h2>
+    <section class="section section-ps mt-5">
+        <div class="row">
+            <% data.forEach(item => { %>
+                <div class="col-md-4">
+                    <figure class="figure figure-ps">
+                        <a href="/playStation/<%= item.id %>">
+                            <img src="<%= item.image %>" alt="<%= item.title %>" class="img-fluid fig-image">
+                            <figcaption class="figcaption figcap-ps"> <%= item.name %></figcaption>
+                        </a>
+                        <p class="figcaption figcap-creator"> Genre: 
+                        </p>
+                            <a href="#"> <%= item.genre %></a>
+                        </p>
+                        <p class="list-group-item text-danger"> Publishers: <% for(let i = 0; i < item.publishers.length; i++) { %>
+                            <span class="text-dark"> <%= item.publishers[i] %> </span> 
+                         <% } %>
+                         </p> 
+
+                        <p class="list-group-item text-danger"> Developer(s): <% for(let i = 0; i < item.developers.length; i++) { %>
+                            <span class="text-dark"> <%= item.developers[i] %> </span> 
+                        <% } %>
+                        </p> 
+                    </figure>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+</main>
+
+<%- include('../partials/footer'); %>
